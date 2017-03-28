@@ -8,30 +8,29 @@ ApplicationWindow {
     height: 480
     title: qsTr("Hello World")
 
-    SwipeView {
-        id: swipeView
-        anchors.fill: parent
-        currentIndex: tabBar.currentIndex
 
-        Page1 {
-        }
 
-        Page {
-            Label {
-                text: qsTr("Second page")
-                anchors.centerIn: parent
-            }
-        }
+    Rectangle{
+        id: test;
+        x: 0
+        y: 0
+        width: parent.width;
+        height: 100;
+        color: "#004D85";
     }
 
-    footer: TabBar {
-        id: tabBar
-        currentIndex: swipeView.currentIndex
-        TabButton {
-            text: qsTr("First")
-        }
-        TabButton {
-            text: qsTr("Second")
-        }
+    Text {
+        id: text1
+        anchors.centerIn: parent;
+        y: 20
+        width: 63
+        height: 61
+        color: "#FFC412";
+        text: qsTr("Bev Facey Community High School")
+        anchors.verticalCenterOffset: -177
+        anchors.horizontalCenterOffset: -90
+        renderType: Text.QtRendering
+        font.pixelSize: 20
     }
+
 }
