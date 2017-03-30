@@ -14,7 +14,8 @@ ApplicationWindow {
     source: "https://raw.githubusercontent.com/jmyrland/DriSMo/master/drismo/assets/eras-bold.ttf";
     }
 
-    Rectangle{
+    Rectangle
+    {
         id: test;
         x: 0
         y: -47
@@ -23,7 +24,8 @@ ApplicationWindow {
         color: "#004D85";
     }
 
-    Text {
+    Text
+    {
         id: text1
         font.family: eras.name;
         x: 10
