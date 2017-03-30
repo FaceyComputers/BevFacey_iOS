@@ -1,10 +1,11 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.0
+import QtQuick.Window 2.0
 
 ApplicationWindow {
     visible: true
-    width: 375
+    width: 375 //Fits 375 - iPhone 6 - 7, 320 - iPhone 5 - 5s
     height: 620
     title: qsTr("Bev Facey App")
 
@@ -39,7 +40,22 @@ ApplicationWindow {
         //anchors.verticalCenterOffset: 0
         //anchors.horizontalCenterOffset: 0
         renderType: Text.QtRendering
-        font.pixelSize: 30
+        font.pixelSize: {
+            if(Screen.width == 320)
+            {
+            20
+            }else if(Screen.width == 375){
+            30
+            }
+        }
+    }
+
+    Text {
+        id: text2
+        x: 144
+        y: 184
+        text: Screen.width + " " + Screen.height;
+        font.pixelSize: 12
     }
 
 }
