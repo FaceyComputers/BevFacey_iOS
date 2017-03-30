@@ -2,4 +2,7 @@
     <qresource prefix="/">
         <file>main.qml</file>
     </qresource>
+    <qresource prefix="/images">
+        <file>Bev_Facey_Logo.png</file>
+    </qresource>
 </RCC>
