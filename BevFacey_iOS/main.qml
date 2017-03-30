@@ -5,14 +5,38 @@ import QtQuick.Window 2.0
 
 ApplicationWindow {
 
-    function getWidth() //Fits 375 - iPhone 6 - 7, 320 - iPhone 5 - 5s
+    function getWidthInt() //Fits 375 - iPhone 6 - 7, 414 - iPhone 6 plus - 7 plus, 320 - iPhone 5 - 5s
     {
-        if(Screen.width <= 320) //iPhone 5 screen
+        var integer = 0;
+        if(Screen.width == 320) //iPhone 5 screen
         {
-        return "Your screen size is 320 or lower";
-        }else if(Screen.width >= 375){
-        return "Your screen size is 375 or higher";
-        }else{
+            integer = 320;
+        }
+        if(Screen.width == 375)
+        {
+            integer = 375;
+        }
+        if(Screen.width >= 414)
+        {
+            integer = 414;
+        }
+        mainfunction.setWidth(integer);
+        return integer;
+    }
+
+    function getWidthString() //Fits 375 - iPhone 6 - 7, 320 - iPhone 5 - 5s
+    {
+        if(Screen.width == 320) //iPhone 5 screen
+        {
+            return "Your screen size is 320 or lower";
+        }
+        if(Screen.width == 375)
+        {
+            return "Your screen size is 375 or higher";
+        }
+        if(Screen.width >= 414)
+        {
+            return "Your screen size is 414 or higher";
         }
     }
 
@@ -23,12 +47,14 @@ ApplicationWindow {
     }
 
     visible: true
-    width: getWidth();
+    width: getWidthInt();
     height: 620
     title: qsTr("Bev Facey App")
 
+
     Rectangle
     {
+
         id: topBlueRectangle;
         x: 0
         y: 0
@@ -52,7 +78,7 @@ ApplicationWindow {
         font.capitalization: Font.MixedCase
         //anchors.verticalCenterOffset: 0
         //anchors.horizontalCenterOffset: 0
-        renderType: Text.QtRendering
+        renderType: Text.QtRendering;
     }
 
 
@@ -61,7 +87,7 @@ ApplicationWindow {
         id: testWidth;
         x: 158
         y: 159
-        text: getWidth();
+        text: getWidthString();
         font.pixelSize: 12
     }
 
