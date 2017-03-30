@@ -5,7 +5,7 @@ import QtQuick.Window 2.0
 
 ApplicationWindow {
 
-    function getWidth()
+    function getWidth() //Fits 375 - iPhone 6 - 7, 320 - iPhone 5 - 5s
     {
         if(Screen.width <= 320) //iPhone 5 screen
         {
@@ -16,20 +16,20 @@ ApplicationWindow {
         }
     }
 
-    visible: true
-    width: getWidth(); //Fits 375 - iPhone 6 - 7, 320 - iPhone 5 - 5s
-    height: 620
-    title: qsTr("Bev Facey App")
-
     FontLoader
     {
     id: eras;
     source: "https://raw.githubusercontent.com/jmyrland/DriSMo/master/drismo/assets/eras-bold.ttf";
     }
 
+    visible: true
+    width: getWidth();
+    height: 620
+    title: qsTr("Bev Facey App")
+
     Rectangle
     {
-        id: test;
+        id: topBlueRectangle;
         x: 0
         y: 0
         width: parent.width;
@@ -39,7 +39,7 @@ ApplicationWindow {
 
     Text
     {
-        id: title;
+        id: mainTitle;
         font.family: eras.name;
         x: 106
         //anchors.centerIn: parent;
@@ -65,7 +65,8 @@ ApplicationWindow {
         font.pixelSize: 12
     }
 
-    Image {
+    Image
+    {
         id: bevFaceyLogo
         x: 0
         y: 12
