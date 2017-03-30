@@ -6,7 +6,7 @@ ApplicationWindow {
     visible: true
     width: 750
     height: 1334
-    title: qsTr("Hello World")
+    title: qsTr("Bev Facey App")
 
     FontLoader
     {
