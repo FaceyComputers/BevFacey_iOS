@@ -4,33 +4,40 @@ import QtQuick.Layouts 1.0
 
 ApplicationWindow {
     visible: true
-    width: 640
-    height: 480
+    width: 750
+    height: 1334
     title: qsTr("Hello World")
 
-
+    FontLoader
+    {
+    id: eras;
+    source: "https://raw.githubusercontent.com/jmyrland/DriSMo/master/drismo/assets/eras-bold.ttf";
+    }
 
     Rectangle{
         id: test;
         x: 0
-        y: 0
+        y: -47
         width: parent.width;
-        height: 100;
+        height: parent.height / 5
         color: "#004D85";
     }
 
     Text {
         id: text1
-        anchors.centerIn: parent;
-        y: 20
-        width: 63
-        height: 61
+        font.family: eras.name;
+        x: 10
+        //anchors.centerIn: parent;
+        y: 5
+        width: 469
+        height: 71
         color: "#FFC412";
-        text: qsTr("Bev Facey Community High School")
-        anchors.verticalCenterOffset: -177
-        anchors.horizontalCenterOffset: -90
+        text: qsTr("Bev Facey\nCommunity High")
+        font.capitalization: Font.MixedCase
+        //anchors.verticalCenterOffset: 0
+        //anchors.horizontalCenterOffset: 0
         renderType: Text.QtRendering
-        font.pixelSize: 20
+        font.pixelSize: 30
     }
 
 }
