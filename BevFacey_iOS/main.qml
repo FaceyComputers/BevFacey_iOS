@@ -4,8 +4,8 @@ import QtQuick.Layouts 1.0
 
 ApplicationWindow {
     visible: true
-    width: 750
-    height: 1334
+    width: 375
+    height: 620
     title: qsTr("Bev Facey App")
 
     FontLoader
@@ -28,13 +28,13 @@ ApplicationWindow {
     {
         id: text1
         font.family: eras.name;
-        x: 10
+        x: 6
         //anchors.centerIn: parent;
-        y: 5
+        y: 6
         width: 469
         height: 71
-        color: "#FFC412";
-        text: qsTr("Bev Facey\nCommunity High")
+        color: "#FFFFFF";
+        text: qsTr("Bev Facey\nCommunity High School")
         font.capitalization: Font.MixedCase
         //anchors.verticalCenterOffset: 0
         //anchors.horizontalCenterOffset: 0
