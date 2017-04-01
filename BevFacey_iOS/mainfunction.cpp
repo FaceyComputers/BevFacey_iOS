@@ -1,8 +1,18 @@
 #include "mainfunction.h"
-
+#include <QMessageBox>
 mainfunction::mainfunction(QObject *parent) : QObject(parent)
 {
+    updateString = "NULL";
+}
 
+void mainfunction::load()
+{
+    updateString = "NULL Update. Please check your internet connection. If you think this is a bug, please contact the developer.";
+}
+
+QString mainfunction::updates()
+{
+    return updateString;
 }
 
 void mainfunction::setSize(int width, int height)
@@ -16,4 +26,9 @@ void mainfunction::setWidth(int width)
 {
     this->widthSize = width;
     qDebug() << "Set size called";
+}
+
+int mainfunction::getWidth()
+{
+    return this->widthSize;
 }

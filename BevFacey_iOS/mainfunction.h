@@ -11,12 +11,16 @@ public:
     explicit mainfunction(QObject *parent = 0);
     Q_INVOKABLE void setSize(int width, int height);
     Q_INVOKABLE void setWidth(int width);
+    Q_INVOKABLE int getWidth();
+    Q_INVOKABLE void load();
+    Q_INVOKABLE QString updates();
 signals:
 
 public slots:
 private:
     int widthSize;
     int heightSize;
+    QString updateString;
 };
 
 #endif // MAINFUNCTION_H
