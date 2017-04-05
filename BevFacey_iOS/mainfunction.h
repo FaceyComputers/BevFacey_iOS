@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QDebug>
+#include <QString>
 
 class mainfunction : public QObject
 {
@@ -14,7 +15,6 @@ public:
     Q_INVOKABLE int getWidth();
     Q_INVOKABLE void load();
     Q_INVOKABLE QString updates();
-    Q_INVOKABLE int test();
 signals:
 
 public slots:

@@ -25,26 +25,16 @@ ApplicationWindow {
     source: "https://raw.githubusercontent.com/jmyrland/DriSMo/master/drismo/assets/eras-bold.ttf";
     }
 
-    function callCPP()
-    {
-    mainfunction.load();
-    }
-
     function update()
     {
     return mainfunction.updates();
-    }
-
-    function getinteger()
-    {
-    return mainfunction.test();
     }
 
     MessageDialog {
     Component.onCompleted: {visible = true;}
     id: updates;
     title: "Important Update!";
-    text: "Bev Facey has a CHO";
+    text: update();
     }
 
 
@@ -98,7 +88,7 @@ ApplicationWindow {
         y: 245
         width: 88
         height: 85
-        text: getinteger();
+        text: update();
         font.pixelSize: 42
     }
 

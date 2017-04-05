@@ -12,7 +12,8 @@ void mainfunction::load()
 
 QString mainfunction::updates()
 {
-    return updateString;
+    updateString = "NULL Update. Please check your internet connection. If you think this is a bug, please contact the developer.";
+    return "NULL Update. Please check your internet connection. If you think this is a bug, please contact the developer.";
 }
 
 void mainfunction::setSize(int width, int height)
@@ -20,11 +21,6 @@ void mainfunction::setSize(int width, int height)
     this->widthSize = width;
     this->heightSize = height;
     qDebug() << "Set size called";
-}
-
-int mainfunction::test()
-{
-    return 314159265;
 }
 
 void mainfunction::setWidth(int width)
