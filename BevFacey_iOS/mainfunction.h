@@ -14,6 +14,7 @@ public:
     Q_INVOKABLE int getWidth();
     Q_INVOKABLE void load();
     Q_INVOKABLE QString updates();
+    Q_INVOKABLE int test();
 signals:
 
 public slots:

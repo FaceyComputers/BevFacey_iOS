@@ -35,12 +35,19 @@ ApplicationWindow {
     return mainfunction.updates();
     }
 
+    function getinteger()
+    {
+    return mainfunction.test();
+    }
+
     MessageDialog {
     Component.onCompleted: {visible = true;}
     id: updates;
     title: "Important Update!";
-    text: update();
+    text: "Bev Facey has a CHO";
     }
+
+
 
     Rectangle {
         id: topBlueRectangle;
@@ -83,6 +90,16 @@ ApplicationWindow {
         width: Script.getPosition(parent.width, "Logo", "Width");
         height: Script.getPosition(parent.width, "Logo", "Height");
         source: "qrc:/images/Bev_Facey_Logo.png"
+    }
+
+    Text {
+        id: text1
+        x: 102
+        y: 245
+        width: 88
+        height: 85
+        text: getinteger();
+        font.pixelSize: 42
     }
 
 }

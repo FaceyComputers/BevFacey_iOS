@@ -22,6 +22,11 @@ void mainfunction::setSize(int width, int height)
     qDebug() << "Set size called";
 }
 
+int mainfunction::test()
+{
+    return 314159265;
+}
+
 void mainfunction::setWidth(int width)
 {
     this->widthSize = width;
