@@ -25,19 +25,6 @@ ApplicationWindow {
     source: "https://raw.githubusercontent.com/jmyrland/DriSMo/master/drismo/assets/eras-bold.ttf";
     }
 
-    function update()
-    {
-    return mainfunction.updates();
-    }
-
-    MessageDialog {
-    Component.onCompleted: {visible = true;}
-    id: updates;
-    title: "Important Update!";
-    text: update();
-    }
-
-
 
     Rectangle {
         id: topBlueRectangle;
@@ -88,8 +75,20 @@ ApplicationWindow {
         y: 245
         width: 88
         height: 85
-        text: update();
+        text: "getUpdate()";
         font.pixelSize: 42
+    }
+
+    MessageDialog {
+    id: newarticle;
+    function getUpdate()
+    {
+    return mainfunction.updates();
+    }
+
+    title: getUpdate();
+    text: getUpdate();
+    Component.onCompleted: {visible = true;}
     }
 
 }
