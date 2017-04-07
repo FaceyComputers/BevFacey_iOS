@@ -10,21 +10,66 @@
 </canvas>
 <p id="reading"></p>
 <p id="count"></p>
+<button onclick="map.changeFloor()">Click me</button>
 <script>
 var ctx = document.getElementById("canvas").getContext("2d");
-var map = document.getElementById("floor1");
 var x = document.getElementById("reading");
+var map = {
+	tile: document.getElementById("floor1"),
+	floor: 1,
+	x: 98,
+	y: 120,
+	changeFloor: function(){
+		if (this.floor === 1){
+			this.tile = document.getElementById("floor2");
+			this.floor = 2;
+		} else {
+			this.tile = document.getElementById("floor1");
+			this.floor = 1;
+		}
+	},
+	move: function(){
+		this.x = 100;
+		this.y = 80;
+	}
+}
 var readings = {
 	count: 0.0,
 	latitude: 0.0,
 	longitude: 0.0,
 	altitude: 0.0
 };
-//corner of 216: 53.525287, -113269566
-var user = {
-	x: -100,
-	y: -100
-};
+/*
+
+53.525667, -113.269564
+x: -1470,
+y: 80
+
+corner of 216: 53.525287, -113.269566
+x: -950,
+y: 80,
+change by 0.000380 = 520px
+520/380(millionths) = 1.37
+
+top left of math depatment:
+53.524962, -113.269562
+x: -500,
+y: 80,
+change by 0.000325 = 450px
+450/325(millionths) = 1.38
+
+top left of school
+53.524533, -113.269612
+x: 98,
+y: 120
+change by 0.001135 = 1568px
+1568/1135(millionths) = 1.38
+
+****every millionth is 1.38 px****
+
++-0.000003 = +- 4px 
+*/
+
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(processPosition);
@@ -51,11 +96,12 @@ function showPosition() {
     x.innerHTML = "Latitude: " + (readings.latitude/readings.count).toFixed(6) + 
     "<br>Longitude: " + (readings.longitude/readings.count).toFixed(6) + 
     "<br>Altitude: " + readings.count;
-    console.log(readings.count, readings.latitude)
 }
 
 function render(){
-	ctx.drawImage(map, user.x,user.y, map.width/2, map.height/2);
+	ctx.clearRect(0,0,550,400);
+	ctx.drawImage(map.tile, map.x, map.y, map.tile.width/2, map.tile.height/2);
+	ctx.fillRect(270, 195, 10, 10);
 }
 render();
 setInterval(function(){
