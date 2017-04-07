@@ -1,5 +1,5 @@
 import QtQuick 2.7
-import QtQuick.Controls 2.0
+import QtQuick.Controls 1.4
 import QtQuick.Layouts 1.0
 import QtQuick.Window 2.0
 import QtQuick.Dialogs 1.2
@@ -35,13 +35,13 @@ ApplicationWindow {
         color: "#004D85";
     }
 
-    Rectangle {
+    Button {
         id: middleBlueMenu;
         x: 0;
         y: 100;
         width: parent.width;
         height: 50;
-        color: "#003860";
+        //color: "#003860";
     }
 
     Text {
@@ -79,16 +79,16 @@ ApplicationWindow {
         font.pixelSize: 42
     }
 
-    MessageDialog {
+    /*MessageDialog {
     id: newarticle;
     function getUpdate()
     {
     return mainfunction.updates();
     }
-
     title: getUpdate();
     text: getUpdate();
-    Component.onCompleted: {visible = true;}
-    }
+    detailedText: getUpdate();
+    Component.onCompleted: {open();}
+    }*/
 
 }

@@ -2,7 +2,7 @@
 #include <QMessageBox>
 mainfunction::mainfunction(QObject *parent) : QObject(parent)
 {
-    updateString = "NULL";
+    updateString = "whatever";
 }
 
 void mainfunction::load()
@@ -13,7 +13,8 @@ void mainfunction::load()
 QString mainfunction::updates()
 {
     updateString = "NULL Update. Please check your internet connection. If you think this is a bug, please contact the developer.";
-    return "NULL Update. Please check your internet connection. If you think this is a bug, please contact the developer.";
+    qDebug() << updateString;
+    return "whatever";
 }
 
 void mainfunction::setSize(int width, int height)
