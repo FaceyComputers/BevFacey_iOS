@@ -6,4 +6,7 @@
     <qresource prefix="/images">
         <file>Bev_Facey_Logo.png</file>
     </qresource>
+    <qresource prefix="/font">
+        <file>eras-bold.ttf</file>
+    </qresource>
 </RCC>

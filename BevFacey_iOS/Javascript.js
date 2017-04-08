@@ -1,40 +1,6 @@
 var width = 0;
 var height = 0;
 
-/*function getWidthInt() //Fits 375 - iPhone 6 - 7, 414 - iPhone 6 plus - 7 plus, 320 - iPhone 5 - 5s
-{
-    var integer = 0;
-    if(Screen.width == 320) //iPhone 5 screen
-    {
-        integer = 320;
-    }
-    if(Screen.width == 375)
-    {
-        integer = 375;
-    }
-    if(Screen.width >= 414)
-    {
-        integer = 414;
-    }
-    return integer;
-}
-
-function getWidthString() //Fits 375 - iPhone 6 - 7, 320 - iPhone 5 - 5s
-{
-    if(Screen.width == 320) //iPhone 5 screen
-    {
-        return "Your screen size is 320 or lower";
-    }
-    if(Screen.width == 375)
-    {
-        return "Your screen size is 375 or higher";
-    }
-    if(Screen.width >= 414)
-    {
-        return "Your screen size is 414 or higher";
-    }
-}*/
-
 function getPosition(type, item, value)
 {
     //type = type.toLowerCase();
