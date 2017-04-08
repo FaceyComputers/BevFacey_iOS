@@ -1,5 +1,5 @@
 import QtQuick 2.7
-import QtQuick.Controls 2.0
+import QtQuick.Controls 2.1
 import QtQuick.Layouts 1.0
 import QtQuick.Window 2.0
 import QtQuick.Dialogs 1.2
@@ -129,6 +129,8 @@ ApplicationWindow { //RAM Average 12.6MB
         }
     }
 
+    ListView{
+
     Item {
 
         visible: false;
@@ -195,9 +197,18 @@ ApplicationWindow { //RAM Average 12.6MB
         MouseArea {
         anchors.fill: parent;
         onClicked: {
-        backin();
+        //backin();
+
         }
         }
+        }
+
+        Button {
+        z: 2;
+        x: 5;
+        y: 30;
+        height: 50;
+        text:"test"
         }
 
         Button {
@@ -404,5 +415,6 @@ ApplicationWindow { //RAM Average 12.6MB
         }
     }
 
+}
 }
 
