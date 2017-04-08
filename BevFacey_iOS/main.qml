@@ -1,5 +1,5 @@
 import QtQuick 2.7
-import QtQuick.Controls 1.4
+import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.0
 import QtQuick.Window 2.0
 import QtQuick.Dialogs 1.2
@@ -7,6 +7,7 @@ import "Javascript.js" as Script
 
 ApplicationWindow {
 
+    id: root;
     visible: true
     width: {
         if(Screen.width != 1680)
@@ -41,8 +42,38 @@ ApplicationWindow {
         y: 100;
         width: parent.width;
         height: 50;
-        //color: "#003860";
+        text: "Navigation \u2630";
+        contentItem: Text{
+            text: middleBlueMenu.text
+            opacity: 1.0
+            font.pointSize: 20;
+            color: middleBlueMenu.down ? "#999999" : "#ffffff";
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            elide: Text.ElideRight
+        }
+
+        MouseArea {
+            id: clickArea;
+            anchors.fill: parent;
+            onClicked: {
+                dropDownMenu.visible = true;
+            }
+        }
+
+        background: Rectangle {color: "#003860"}
     }
+
+    Item {
+        visible: false;
+        id: dropDownMenu;
+        Button {
+        text: "About";
+        width: root.width;
+        height: 200;
+        }
+    }
+
 
     Text {
         id: mainTitle;
