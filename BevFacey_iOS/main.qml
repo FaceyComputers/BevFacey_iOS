@@ -1,5 +1,5 @@
 import QtQuick 2.7
-import QtQuick.Controls 2.1
+import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.0
 import QtQuick.Window 2.0
 import QtQuick.Dialogs 1.2
@@ -19,7 +19,7 @@ ApplicationWindow { //RAM Average 12.6MB
             414; //414, 375, 320 Debug
         }
     }
-    height: 620
+    height: 620 //620
     title: qsTr("Bev Facey App")
 
     FontLoader {
@@ -129,14 +129,17 @@ ApplicationWindow { //RAM Average 12.6MB
         }
     }
 
-    ListView{
+    property int orignal: 0;
 
+    Flickable{
+        contentWidth: dropDownMenu.width; contentHeight: dropDownMenu.height
+
+        anchors.fill: parent
     Item {
-
         visible: false;
         id: dropDownMenu;
         y: 1;
-
+        width: root.width; height: 550
         NumberAnimation on y{
                 id: dropinDropMenu;
                 from: -100;
@@ -198,22 +201,113 @@ ApplicationWindow { //RAM Average 12.6MB
         anchors.fill: parent;
         onClicked: {
         //backin();
+            if(orignal == 0)
+            {
+            orignal = 450;
+            dropDownMenu.height = 1000;
 
+            }else{
+            orignal = 0;
+            dropDownMenu.height = 550;
+            }
         }
         }
         }
+
+        Item {
+            id: aboutExtended;
+        Button {
+        z: 1;
+        x: 0;
+        y: 50;
+        height: 50;
+        width: root.width;
+        background: Rectangle {
+            color: "#003860"
+            border.color: "#002947";
+            border.width: 2;
+        }
+        contentItem: Text{
+            text: "Bell Times";
+            opacity: 1.0
+            font.pointSize: 20;
+            color: eTeachers.down ? "#999999" : "#ffffff";
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            elide: Text.ElideRight
+        }
+     }
 
         Button {
-        z: 2;
-        x: 5;
-        y: 30;
+        z: 1;
+        x: 0;
+        y: 100;
         height: 50;
-        text:"test"
+        width: root.width;
+        background: Rectangle {
+            color: "#003860"
+            border.color: "#002947";
+            border.width: 2;
         }
+        contentItem: Text{
+            text: "Calandar"
+            opacity: 1.0
+            font.pointSize: 20;
+            color: eTeachers.down ? "#999999" : "#ffffff";
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            elide: Text.ElideRight
+        }
+     }
+
+        Button {
+        z: 1;
+        x: 0;
+        y: 150;
+        height: 50;
+        width: root.width;
+        background: Rectangle {
+            color: "#003860"
+            border.color: "#002947";
+            border.width: 2;
+        }
+        contentItem: Text{
+            text: "Contact"
+            opacity: 1.0
+            font.pointSize: 20;
+            color: eTeachers.down ? "#999999" : "#ffffff";
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            elide: Text.ElideRight
+        }
+     }
+
+        Button {
+        z: 1;
+        x: 0;
+        y: 200;
+        height: 50;
+        width: root.width;
+        background: Rectangle {
+            color: "#003860"
+            border.color: "#002947";
+            border.width: 2;
+        }
+        contentItem: Text{
+            text: "Documents"
+            opacity: 1.0
+            font.pointSize: 20;
+            color: eTeachers.down ? "#999999" : "#ffffff";
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            elide: Text.ElideRight
+        }
+     }
+  }
 
         Button {
         x: 0;
-        y: 50;
+        y: orignal + 50;
         id: eTeachers
         text: "eTeachers";
         width: root.width;
@@ -242,7 +336,7 @@ ApplicationWindow { //RAM Average 12.6MB
 
         Button {
         x: 0;
-        y: 100;
+        y: orignal + 100;
         id: programs
         text: "Programs";
         width: root.width;
@@ -271,7 +365,7 @@ ApplicationWindow { //RAM Average 12.6MB
 
         Button {
         x: 0;
-        y: 150;
+        y: orignal + 150;
         id: parents
         text: "Parents";
         width: root.width;
@@ -300,7 +394,7 @@ ApplicationWindow { //RAM Average 12.6MB
 
         Button {
         x: 0;
-        y: 200;
+        y: orignal + 200;
         id: students
         text: "Students";
         width: root.width;
@@ -329,7 +423,7 @@ ApplicationWindow { //RAM Average 12.6MB
 
         Button {
         x: 0;
-        y: 250;
+        y: orignal + 250;
         id: athletics;
         text: "Athletics";
         width: root.width;
@@ -358,7 +452,7 @@ ApplicationWindow { //RAM Average 12.6MB
 
         Button {
         x: 0;
-        y: 300;
+        y: orignal + 300;
         id: guidance;
         text: "Guidance";
         width: root.width;
@@ -387,7 +481,7 @@ ApplicationWindow { //RAM Average 12.6MB
 
         Button {
         x: 0;
-        y: 350;
+        y: orignal + 350;
         id: sustainability;
         text: "Sustainability";
         width: root.width;
@@ -413,8 +507,8 @@ ApplicationWindow { //RAM Average 12.6MB
         }
         }
         }
-    }
 
+    }
 }
 }
 
