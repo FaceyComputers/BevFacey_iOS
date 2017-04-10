@@ -29,7 +29,7 @@ var map = {
 		}
 	},
 	getX: function(latitude){
-		return (latitude-53.5246)*-1370000;
+		return (latitude - 53.5246)*-1370000;
 	},
 	getY: function(longitude){	
 		return (longitude + 113.269464)*-820000;
@@ -74,8 +74,9 @@ function showPosition() {
 
 function render(){
 	ctx.clearRect(0,0,550,400);
-	ctx.drawImage(map.tile, map.getX((readings.latitude/readings.count).toFixed(6)), map.getY((readings.longitude/readings.count).toFixed(6)), map.tile.width/2, map.tile.height/2);
+	ctx.drawImage(map.tile, map.getX(Number((readings.latitude/readings.count).toFixed(6))), map.getY(Number((readings.longitude/readings.count).toFixed(6))), map.tile.width/2, map.tile.height/2);
 	ctx.fillRect(270, 195, 10, 10);
+	console.log(map.getX(Number((readings.latitude/readings.count).toFixed(6))), map.getY(Number((readings.longitude/readings.count).toFixed(6))));
 }
 render();
 setInterval(function(){
