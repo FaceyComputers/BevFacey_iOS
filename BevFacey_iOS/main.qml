@@ -135,15 +135,15 @@ ApplicationWindow { //RAM Average 12.6MB
 
     property int original: 0;
 
-    property int original_2: 0;
+    //property int original_2: 0;
 
-    property int original_3: 0;
+    //property int original_3: 0;
 
-    property int original_4: 0;
+    //property int original_4: 0;
 
-    property int original_5: 0;
+    //property int original_5: 0;
 
-    property int original_6: 0;
+    //property int original_6: 0;
 
     Flickable{
         contentWidth: dropDownMenu.width; contentHeight: dropDownMenu.height
@@ -153,7 +153,7 @@ ApplicationWindow { //RAM Average 12.6MB
         visible: false;
         id: dropDownMenu;
         y: 1;
-        width: root.width; height: 550
+        width: root.width; height: 300
 
         NumberAnimation on y{
                 id: dropinDropMenu;
@@ -219,12 +219,12 @@ ApplicationWindow { //RAM Average 12.6MB
             if(original == 0)
             {
             original = 350;
-            dropDownMenu.height = 1000;
+            dropDownMenu.height = 550;
             aboutButton.text = "About \u25B2"
             aboutExtended.visible = true;
             }else{
             original = 0;
-            dropDownMenu.height = 550;
+            dropDownMenu.height = 300;
             aboutButton.text = "About \u25BC"
             aboutExtended.visible = false;
             }
@@ -235,6 +235,7 @@ ApplicationWindow { //RAM Average 12.6MB
         Item {
             id: aboutExtended;
             visible: false;
+            y: 0;
         Button {
         x: 0;
         y: 50;
@@ -263,7 +264,7 @@ ApplicationWindow { //RAM Average 12.6MB
             color: "#003860"
         }
         contentItem: Text{
-            text: "Calandar"
+            text: "Calendar"
             opacity: 1.0
             font.pointSize: 15;
             color: "#ffffff";
@@ -282,7 +283,7 @@ ApplicationWindow { //RAM Average 12.6MB
             color: "#003860"
         }
         contentItem: Text{
-            text: "Contact"
+            text: "Our Schools"
             opacity: 1.0
             font.pointSize: 15;
             color: "#ffffff";
@@ -301,44 +302,6 @@ ApplicationWindow { //RAM Average 12.6MB
             color: "#003860"
         }
         contentItem: Text{
-            text: "Documents"
-            opacity: 1.0
-            font.pointSize: 15;
-            color: "#ffffff";
-            horizontalAlignment: Text.AlignHCenter
-            verticalAlignment: Text.AlignVCenter
-            elide: Text.ElideRight
-        }
-     }
-
-        Button {
-        x: 0;
-        y: 250;
-        height: 50;
-        width: root.width;
-        background: Rectangle {
-            color: "#003860"
-        }
-        contentItem: Text{
-            text: "Our Schools"
-            opacity: 1.0
-            font.pointSize: 15;
-            color: "#ffffff";
-            horizontalAlignment: Text.AlignHCenter
-            verticalAlignment: Text.AlignVCenter
-            elide: Text.ElideRight
-        }
-     }
-
-        Button {
-        x: 0;
-        y: 300;
-        height: 50;
-        width: root.width;
-        background: Rectangle {
-            color: "#003860"
-        }
-        contentItem: Text{
             text: "Principal's Message"
             opacity: 1.0
             font.pointSize: 15;
@@ -351,7 +314,7 @@ ApplicationWindow { //RAM Average 12.6MB
 
         Button {
         x: 0;
-        y: 350;
+        y: 250;
         height: 50;
         width: root.width;
         background: Rectangle {
@@ -371,48 +334,21 @@ ApplicationWindow { //RAM Average 12.6MB
 
         Button {
         x: 0;
-        y: original + 50;
-        id: eTeachers
-        width: root.width;
-        height: 50;
-        background: Rectangle {
-            color: "#003860"
-            border.color: "#002947";
-            border.width: 2;
-        }
-        contentItem: Text{
-            text: "eTeachers";
-            opacity: 1.0
-            font.pointSize: 20;
-            color: eTeachers.down ? "#999999" : "#ffffff";
-            horizontalAlignment: Text.AlignHCenter
-            verticalAlignment: Text.AlignVCenter
-            elide: Text.ElideRight
-        }
-        MouseArea {
-        anchors.fill: parent;
-        onClicked: {
-        backin();
-        }
-        }
-        }
-
-        Button {
-        x: 0;
         y: original + 100;
-        id: programs
+        id: programButton
         width: root.width;
         height: 50;
+        text: "Programs \u25BC";
         background: Rectangle {
             color: "#003860"
             border.color: "#002947";
             border.width: 2;
         }
         contentItem: Text{
-            text: "Programs \u25BC";
+            text: parent.text;
             opacity: 1.0
             font.pointSize: 20;
-            color: programs.down ? "#999999" : "#ffffff";
+            color: programButton.down ? "#999999" : "#ffffff";
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
             elide: Text.ElideRight
@@ -420,7 +356,18 @@ ApplicationWindow { //RAM Average 12.6MB
         MouseArea {
         anchors.fill: parent;
         onClicked: {
-        //backin();
+            if(original_2 == 0)
+            {
+            original_2 = 350;
+            dropDownMenu.height = 1000;
+            programButton.text = "Programs \u25B2"
+            programExtended.visible = true;
+            }else{
+            original_2 = 0;
+            dropDownMenu.height = 550;
+            programButton.text = "Programs \u25BC"
+            programExtended.visible = false;
+            }
         }
         }
         }
@@ -428,7 +375,7 @@ ApplicationWindow { //RAM Average 12.6MB
         Button {
         x: 0;
         y: original + original_2 + 150;
-        id: parents
+        id: powerSchool
         width: root.width;
         height: 50;
         background: Rectangle {
@@ -437,10 +384,10 @@ ApplicationWindow { //RAM Average 12.6MB
             border.width: 2;
         }
         contentItem: Text{
-            text: "Parents \u25BC";
+            text: "PowerSchool";
             opacity: 1.0
             font.pointSize: 20;
-            color: parents.down ? "#999999" : "#ffffff";
+            color: powerSchool.down ? "#999999" : "#ffffff";
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
             elide: Text.ElideRight
@@ -455,8 +402,8 @@ ApplicationWindow { //RAM Average 12.6MB
 
         Button {
         x: 0;
-        y: original + original_2 + original_3 + 200;
-        id: students
+        y: original + 150;
+        id: media
         width: root.width;
         height: 50;
         background: Rectangle {
@@ -465,10 +412,10 @@ ApplicationWindow { //RAM Average 12.6MB
             border.width: 2;
         }
         contentItem: Text{
-            text: "Students \u25BC";
+            text: "Media";
             opacity: 1.0
             font.pointSize: 20;
-            color: students.down ? "#999999" : "#ffffff";
+            color: media.down ? "#999999" : "#ffffff";
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
             elide: Text.ElideRight
@@ -483,8 +430,8 @@ ApplicationWindow { //RAM Average 12.6MB
 
         Button {
         x: 0;
-        y: original + original_2 + original_3 + original_4 + 250;
-        id: athletics;
+        y: original + 200;
+        id: liveMap
         width: root.width;
         height: 50;
         background: Rectangle {
@@ -493,10 +440,10 @@ ApplicationWindow { //RAM Average 12.6MB
             border.width: 2;
         }
         contentItem: Text{
-        text: "Athletics \u25BC";
+            text: "Live Map";
             opacity: 1.0
             font.pointSize: 20;
-            color: athletics.down ? "#999999" : "#ffffff";
+            color: liveMap.down ? "#999999" : "#ffffff";
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
             elide: Text.ElideRight
@@ -511,8 +458,8 @@ ApplicationWindow { //RAM Average 12.6MB
 
         Button {
         x: 0;
-        y: original + original_2 + original_3 + original_4 + original_5 + 300;
-        id: guidance;
+        y: original + 250;
+        id: contactUs;
         width: root.width;
         height: 50;
         background: Rectangle {
@@ -521,10 +468,10 @@ ApplicationWindow { //RAM Average 12.6MB
             border.width: 2;
         }
         contentItem: Text{
-            text: "Guidance \u25BC";
+        text: "Contact Us";
             opacity: 1.0
             font.pointSize: 20;
-            color: guidance.down ? "#999999" : "#ffffff";
+            color: contactUs.down ? "#999999" : "#ffffff";
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
             elide: Text.ElideRight
@@ -537,35 +484,9 @@ ApplicationWindow { //RAM Average 12.6MB
         }
         }
 
-        Button {
-        x: 0;
-        y: original + original_2 + original_3 + original_4 + original_5 + original_6 + 350;
-        id: sustainability;
-        width: root.width;
-        height: 50;
-        background: Rectangle {
-            color: "#003860"
-            border.color: "#002947";
-            border.width: 2;
-        }
-        contentItem: Text{
-            text: "Sustainability";
-            opacity: 1.0
-            font.pointSize: 20;
-            color: sustainability.down ? "#999999" : "#ffffff";
-            horizontalAlignment: Text.AlignHCenter
-            verticalAlignment: Text.AlignVCenter
-            elide: Text.ElideRight
-        }
-        MouseArea {
-        anchors.fill: parent;
-        onClicked: {
-        backin();
-        }
-        }
-        }
 
     }
 }
 }
+
 
