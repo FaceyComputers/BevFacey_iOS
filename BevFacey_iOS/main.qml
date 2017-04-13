@@ -374,7 +374,7 @@ ApplicationWindow { //RAM Average 12.6MB
 
         Button {
         x: 0;
-        y: original + original_2 + 150;
+        y: original + 150;
         id: powerSchool
         width: root.width;
         height: 50;
