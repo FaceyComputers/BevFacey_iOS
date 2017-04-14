@@ -27,6 +27,11 @@ ApplicationWindow { //RAM Average 12.6MB
     source: "qrc:/font/eras-bold.ttf";
     }
 
+    /*Loader {
+    id: loader;
+    source: "Bell_Times.qml"
+    anchors.fill: parent;
+    }*/
 
     Rectangle {
         id: topBlueRectangle;
@@ -135,7 +140,7 @@ ApplicationWindow { //RAM Average 12.6MB
 
     property int original: 0;
 
-    //property int original_2: 0;
+    property int original_2: 0;
 
     //property int original_3: 0;
 
@@ -218,8 +223,8 @@ ApplicationWindow { //RAM Average 12.6MB
         //backin();
             if(original == 0)
             {
-            original = 350;
-            dropDownMenu.height = 550;
+            original = 250;
+            dropDownMenu.height = 700;
             aboutButton.text = "About \u25B2"
             aboutExtended.visible = true;
             }else{
@@ -252,6 +257,16 @@ ApplicationWindow { //RAM Average 12.6MB
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
             elide: Text.ElideRight
+        }
+
+        MouseArea {
+        anchors.fill: parent;
+        onClicked: {
+            //loader.source = "test.qml";
+            //loader.active = true;
+            pageLoader.visible = true;
+            backin();
+        }
         }
      }
 
@@ -334,7 +349,7 @@ ApplicationWindow { //RAM Average 12.6MB
 
         Button {
         x: 0;
-        y: original + 100;
+        y: original + 50;
         id: programButton
         width: root.width;
         height: 50;
@@ -358,7 +373,7 @@ ApplicationWindow { //RAM Average 12.6MB
         onClicked: {
             if(original_2 == 0)
             {
-            original_2 = 350;
+            original_2 = 250;
             dropDownMenu.height = 1000;
             programButton.text = "Programs \u25B2"
             programExtended.visible = true;
@@ -374,7 +389,7 @@ ApplicationWindow { //RAM Average 12.6MB
 
         Button {
         x: 0;
-        y: original + 150;
+        y: original + 100;
         id: powerSchool
         width: root.width;
         height: 50;
@@ -479,14 +494,26 @@ ApplicationWindow { //RAM Average 12.6MB
         MouseArea {
         anchors.fill: parent;
         onClicked: {
-        backin();
+            backin();
         }
         }
         }
-
 
     }
-}
+    }
+
+    Loader {
+         x: 0
+         y: 150
+         z: -1;
+         width: root.width;
+         height: root.height;
+         id: pageLoader // ID needed for so we can later delete the item
+         source: "Bell_Times.qml"
+         //focus: true
+         visible: false;
+       }
+
 }
 
 
