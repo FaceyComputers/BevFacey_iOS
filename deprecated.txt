@@ -466,3 +466,52 @@ function getWidthString() //Fits 375 - iPhone 6 - 7, 320 - iPhone 5 - 5s
         }
         }
     }
+    
+            /*(QString name = QCoreApplication::applicationDirPath();
+        int position = name.indexOf("BevFacey_iOS.app");
+        name.replace(position, name.length(), "");
+        name.append("Bevfacey.txt");*/
+    //qDebug() << updateString;
+    /*ofstream stream;
+    if(!(reply->error()))
+    {
+    stream.open(name.toStdString().c_str());
+    stream << reply->readAll().toStdString();
+    stream.close();
+    }
+
+    ifstream streams;
+    streams.open(name.toStdString().c_str());
+    string get;
+    if(streams.is_open())
+    {
+        string getdata;
+        while(getline(streams, getdata))
+        {
+            get = getdata;
+        }
+    }
+    updateString = QString::fromStdString(get);
+    qDebug() << QString::fromStdString(get);
+    streams.close();*/
+    
+    
+        /*QString name = QCoreApplication::applicationDirPath();
+        int positions = name.indexOf("BevFacey_iOS.app");
+        name.replace(positions, name.length(), "");
+        name.append("Bevfacey.txt");
+        ofstream stream;
+        stream.open(name.toStdString().c_str());
+        stream << updateString.toStdString();
+        stream.close();*/
+        //qDebug() << updateString;
+        
+            /*CURL *curl = curl_easy_init();
+    CURLcode code;
+    curl_easy_setopt(curl, CURLOPT_URL, "https://www.bevfacey.ca");
+    //curl_easy_setopt(curl, CURLOPT_WRITEDATA,)
+    code = curl_easy_perform(curl);
+    curl_easy_cleanup(curl);
+    return QString::number(code);*/
+    
+        //updateString.replace(0, position, "");
