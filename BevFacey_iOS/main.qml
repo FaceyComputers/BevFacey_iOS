@@ -59,7 +59,6 @@ ApplicationWindow { //RAM Average 12.6MB
     visible: true;
     }
 
-
     Loader {
          x: 0
          y: 150
@@ -71,8 +70,6 @@ ApplicationWindow { //RAM Average 12.6MB
          //focus: true
          visible: false;
     }
-
-
 }
 
 

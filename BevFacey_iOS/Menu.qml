@@ -21,11 +21,11 @@ Item {
 
         anchors.fill: parent
     Text {
-        z: -1;
+        z: 1;
         function getData()
         {
-        mainfunction.load();
-            return "NULL";
+        mainfunction.load("http://bevfacey.ca/");
+        return "NULL";
         }
         id: testingText
         x: 2
@@ -47,7 +47,6 @@ Item {
         var string = mainfunction.updates();
         if(string != "")
         {
-            console.log(string);
             testingText.text = string;
             loadingBar.running = false;
             getUpdate.running = false;
@@ -95,6 +94,7 @@ Item {
         dropDownMenu.visible = true;
         middleBlueMenu.text = "Navigation X";
         isMenuDown = true;
+        dropDownMenuScroll.visible = true;
     }
 
     function backin()
@@ -107,14 +107,8 @@ Item {
         aboutButton.text = "About \u25BC"
         aboutExtended.visible = false;
         middleBlueMenu.text = "Navigation \u2630";
+        dropDownMenuScroll.visible = false;
     }
-
-    /*Rectangle {
-    id: buttoncolor;
-    color: "#003860"
-    border.color: "#002947";
-    border.width: 2;
-    }*/
 
     Button {
         id: middleBlueMenu;
@@ -158,18 +152,12 @@ Item {
 
     property int original_2: 0;
 
-    //property int original_3: 0;
-
-    //property int original_4: 0;
-
-    //property int original_5: 0;
-
-    //property int original_6: 0;
-
     Flickable{
         contentWidth: dropDownMenu.width; contentHeight: dropDownMenu.height
-
+        visible: false;
+        id: dropDownMenuScroll;
         anchors.fill: parent
+
     Item {
         visible: false;
         id: dropDownMenu;

@@ -6,27 +6,27 @@
 #include <QString>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
+#include <QList>
+#include <map>
+#include <QCoreApplication>
+#include <fstream>
 
 class mainfunction : public QObject
 {
     Q_OBJECT
 public:
     explicit mainfunction(QObject *parent = 0);
-    Q_INVOKABLE void setSize(int width, int height);
-    Q_INVOKABLE void setWidth(int width);
-    Q_INVOKABLE int getWidth();
-    Q_INVOKABLE void load();
+    Q_INVOKABLE void load(QString URL);
     Q_INVOKABLE QString updates();
 
-signals:
-
-public slots:
-
 private:
-    int widthSize;
-    int heightSize;
     QString updateString;
     QNetworkAccessManager *access;
+    //std::map<QList<QString>, QList<QString>> articleList;
+    QList<QString> articleListName;
+    QList<QString> articleListText;
+    QList<int> Location;
+    void listData();
 private slots:
     void getData(QNetworkReply *reply);
 };
