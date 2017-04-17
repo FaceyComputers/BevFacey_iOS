@@ -515,3 +515,23 @@ function getWidthString() //Fits 375 - iPhone 6 - 7, 320 - iPhone 5 - 5s
     return QString::number(code);*/
     
         //updateString.replace(0, position, "");
+
+/*void mainfunction::setSize(int width, int height)
+{
+    this->widthSize = width;
+    this->heightSize = height;
+}
+
+void mainfunction::setWidth(int width)
+{
+    this->widthSize = width;
+}
+
+int mainfunction::getWidth()
+{
+    return this->widthSize;
+}*/
+
+    /*Q_INVOKABLE void setSize(int width, int height);
+    Q_INVOKABLE void setWidth(int width);
+    Q_INVOKABLE int getWidth();*/
