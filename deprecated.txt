@@ -535,3 +535,19 @@ int mainfunction::getWidth()
     /*Q_INVOKABLE void setSize(int width, int height);
     Q_INVOKABLE void setWidth(int width);
     Q_INVOKABLE int getWidth();*/
+    
+        //property int original_3: 0;
+
+    //property int original_4: 0;
+
+    //property int original_5: 0;
+
+    //property int original_6: 0;
+    
+    /*Rectangle {
+    id: buttoncolor;
+    color: "#003860"
+    border.color: "#002947";
+    border.width: 2;
+    }*/
+
