@@ -3,6 +3,8 @@
         <file>main.qml</file>
         <file>Javascript.js</file>
         <file>Bell_Times.qml</file>
+        <file>Menu.qml</file>
+        <file>Main_Loader.qml</file>
     </qresource>
     <qresource prefix="/images">
         <file>Bev_Facey_Logo.png</file>

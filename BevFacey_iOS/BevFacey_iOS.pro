@@ -32,3 +32,12 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     mainfunction.h
+
+DISTFILES +=
+
+macx: LIBS += -L$$PWD/../../../../../usr/local/Cellar/curl/7.53.1/lib/ -lcurl
+
+INCLUDEPATH += $$PWD/../../../../../usr/local/Cellar/curl/7.53.1/include
+DEPENDPATH += $$PWD/../../../../../usr/local/Cellar/curl/7.53.1/include
+
+macx: PRE_TARGETDEPS += $$PWD/../../../../../usr/local/Cellar/curl/7.53.1/lib/libcurl.a

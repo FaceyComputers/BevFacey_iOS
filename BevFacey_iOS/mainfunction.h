@@ -4,6 +4,8 @@
 #include <QObject>
 #include <QDebug>
 #include <QString>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
 
 class mainfunction : public QObject
 {
@@ -15,13 +17,18 @@ public:
     Q_INVOKABLE int getWidth();
     Q_INVOKABLE void load();
     Q_INVOKABLE QString updates();
+
 signals:
 
 public slots:
+
 private:
     int widthSize;
     int heightSize;
     QString updateString;
+    QNetworkAccessManager *access;
+private slots:
+    void getData(QNetworkReply *reply);
 };
 
 #endif // MAINFUNCTION_H

@@ -5,7 +5,7 @@ import QtQuick.Window 2.0
 import QtQuick.Dialogs 1.2
 import "Javascript.js" as Script
 
-Rectangle {
+Item {
     id: myItem
 
     width: {
