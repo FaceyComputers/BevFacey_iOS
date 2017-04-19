@@ -47,7 +47,7 @@ Item {
         var integer = mainfunction.updates();
         if(integer != 0)
         {
-            for(var a = 0; a < 4; a++)
+            for(var a = 0; a < integer; a++)
             {
             testingText.text = mainfunction.getTextStringfromList(a);
             }
