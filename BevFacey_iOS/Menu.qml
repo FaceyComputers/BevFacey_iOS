@@ -6,6 +6,7 @@ import QtQuick.Dialogs 1.2
 import "Javascript.js" as Script
 
 Item {
+    id: rootMenu;
     Rectangle {
         id: topBlueRectangle;
         z: 1;
@@ -14,68 +15,22 @@ Item {
         width: parent.width;
         height: 100;
         color: "#004D85";
-    }
 
-    Flickable {
-        contentWidth: testingText.width; contentHeight: 1000
-
-        anchors.fill: parent
-    Text {
-        z: 1;
-        function getData()
-        {
-        mainfunction.load("http://bevfacey.ca/");
-        return "NULL";
+        Text {
+            id: mainTitle;
+            z: 1;
+            font.family: eras.name;
+            x: Script.getPosition(parent.width, "Title", "X");
+            //anchors.centerIn: parent;
+            y: Script.getPosition(parent.width, "Title", "Y");
+            width: Script.getPosition(parent.width, "Title", "Width");
+            height: Script.getPosition(parent.width, "Title", "Height");
+            color: "#FFFFFF";
+            text: qsTr("Bev Facey\nCommunity High School")
+            font.pixelSize: Script.getPosition(parent.width, "Title", "FontSize");
+            font.capitalization: Font.MixedCase
+            renderType: Text.QtRendering;
         }
-        id: testingText
-        x: 2
-        y: 155
-        width: 200;
-        height: 100;
-        text: qsTr(getData());
-        font.pixelSize: 16
-        renderType: Text.QtRendering;
-    }
-    }
-
-    property int counter: 0;
-
-    Timer {
-        interval: 20; running: true; repeat: true;
-        id: getUpdate;
-        onTriggered: {
-        var integer = mainfunction.updates();
-        if(integer != 0)
-        {
-            for(var a = 0; a < integer; a++)
-            {
-            testingText.text = mainfunction.getTextStringfromList(a);
-            }
-            loadingBar.running = false;
-            getUpdate.running = false;
-        }
-        if(counter > 600)
-        {
-            loadingWarning.visible = true;
-        }
-        counter = counter + 1;
-        }
-    }
-
-    Text {
-        id: mainTitle;
-        z: 1;
-        font.family: eras.name;
-        x: Script.getPosition(parent.width, "Title", "X");
-        //anchors.centerIn: parent;
-        y: Script.getPosition(parent.width, "Title", "Y");
-        width: Script.getPosition(parent.width, "Title", "Width");
-        height: Script.getPosition(parent.width, "Title", "Height");
-        color: "#FFFFFF";
-        text: qsTr("Bev Facey\nCommunity High School")
-        font.pixelSize: Script.getPosition(parent.width, "Title", "FontSize");
-        font.capitalization: Font.MixedCase
-        renderType: Text.QtRendering;
     }
 
     Image {
@@ -110,7 +65,6 @@ Item {
         aboutButton.text = "About \u25BC"
         aboutExtended.visible = false;
         middleBlueMenu.text = "Navigation \u2630";
-        dropDownMenuScroll.visible = false;
     }
 
     Button {
@@ -184,6 +138,7 @@ Item {
                 onRunningChanged: if(fadeoutDropMenu.running == false)
                                   {
                                   dropDownMenu.visible = false;
+                                  dropDownMenuScroll.visible = false;
                                   }
         }
 

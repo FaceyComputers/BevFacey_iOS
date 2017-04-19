@@ -53,8 +53,9 @@ ApplicationWindow { //RAM Average 12.6MB
     }
 
     Loader {
+    z: -1;
     id: mainLoader;
-    source: "Main_Loader.qml"
+    source: "Main_page.qml"
     anchors.fill: parent;
     visible: true;
     }

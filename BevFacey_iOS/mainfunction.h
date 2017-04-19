@@ -29,6 +29,7 @@ private:
     QList<QString> articleListText;
     QList<int> Location_Article;
     QList<int> Location;
+    bool isAlreadydone = false;
     void listData();
 private slots:
     void getData(QNetworkReply *reply);

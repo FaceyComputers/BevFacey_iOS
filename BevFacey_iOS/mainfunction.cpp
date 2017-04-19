@@ -10,6 +10,7 @@ mainfunction::mainfunction(QObject *parent) : QObject(parent)
 
 void mainfunction::load(QString URL)
 {
+    isAlreadydone = false;
     access = new QNetworkAccessManager(this);
     connect(access, SIGNAL(finished(QNetworkReply*)), this, SLOT(getData(QNetworkReply*)));
     access->get(QNetworkRequest(QUrl(URL)));
@@ -17,7 +18,8 @@ void mainfunction::load(QString URL)
 
 int mainfunction::updates()
 {
-    return Location.length();
+    //qDebug() << articleListName.length();
+    return articleListName.length();
 }
 
 QString mainfunction::getTitleStringfromList(int value)
@@ -32,8 +34,12 @@ QString mainfunction::getTextStringfromList(int value)
 
 void mainfunction::getData(QNetworkReply* reply)
 {
+    if(isAlreadydone == false)
+    {
      updateString = reply->readAll();
      listData();
+     isAlreadydone = true;
+    }
 }
 
 void mainfunction::listData()
@@ -44,16 +50,15 @@ void mainfunction::listData()
     {
         position = updateString.indexOf("<h2 class=\"article-title\">", position + 1);
         position_2 = updateString.indexOf("</h2>", position_2 + 1);
-        if(position == 4294967295)
+        if(position == 4294967295) //(2 ^ 32) - 1
         {
             break;
         }
         Location.append(position);
         Location_Article.append(position_2);
-        //qDebug() << position << position_2;
     }
 
-    for(int a = 0; a < Location.length(); a++) //Get Title
+    for(int a = 0; a < Location_Article.length(); a++) //Get Title
     {
         QString newtext = updateString;
         newtext.replace(0, Location.at(a), "");
@@ -66,7 +71,7 @@ void mainfunction::listData()
 
     int defaulth2 = 5; //Need this to erase </h2>
 
-    for(int a = 0; a < Location.length(); a++) //Get Article
+    for(int a = 0; a < Location_Article.length(); a++) //Get Article
     {
         QString newtext = updateString;
         newtext.replace(0, Location_Article.at(a) + defaulth2, "");
