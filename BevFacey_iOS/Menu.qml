@@ -44,10 +44,13 @@ Item {
         interval: 20; running: true; repeat: true;
         id: getUpdate;
         onTriggered: {
-        var string = mainfunction.updates();
-        if(string != "")
+        var integer = mainfunction.updates();
+        if(integer != 0)
         {
-            testingText.text = string;
+            for(var a = 0; a < 4; a++)
+            {
+            testingText.text = mainfunction.getTextStringfromList(a);
+            }
             loadingBar.running = false;
             getUpdate.running = false;
         }

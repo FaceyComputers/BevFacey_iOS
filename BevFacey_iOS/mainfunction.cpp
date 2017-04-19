@@ -15,28 +15,19 @@ void mainfunction::load(QString URL)
     access->get(QNetworkRequest(QUrl(URL)));
 }
 
-QString mainfunction::updates()
+int mainfunction::updates()
 {
-    int position = updateString.indexOf("<div class=\"main-content\">");
-    if(position > 0)
-    {
-        updateString.replace(0, position, "");
-        int position_2 = updateString.indexOf("<h2 class=\"article-title\">Follow us:</h2>");
-        updateString.replace(position_2, updateString.length(), "");
+    return Location.length();
+}
 
-        QString name = QCoreApplication::applicationDirPath();
-                int positions = name.indexOf("BevFacey_iOS.app");
-                name.replace(positions, name.length(), "");
-                name.append("Bevfacey.txt");
-                ofstream stream;
-                stream.open(name.toStdString().c_str());
-                stream << updateString.toStdString();
-                stream.close();
+QString mainfunction::getTitleStringfromList(int value)
+{
+    return articleListName.at(value);
+}
 
-        return updateString;
-    }else{
-        return "";
-    }
+QString mainfunction::getTextStringfromList(int value)
+{
+    return articleListText.at(value);
 }
 
 void mainfunction::getData(QNetworkReply* reply)
@@ -48,14 +39,39 @@ void mainfunction::getData(QNetworkReply* reply)
 void mainfunction::listData()
 {
     unsigned int position = 0;
-    while(true)
+    unsigned int position_2 = 0;
+    while(true) //Get Position of the article
     {
         position = updateString.indexOf("<h2 class=\"article-title\">", position + 1);
+        position_2 = updateString.indexOf("</h2>", position_2 + 1);
         if(position == 4294967295)
         {
             break;
         }
         Location.append(position);
-        qDebug() << position;
+        Location_Article.append(position_2);
+        //qDebug() << position << position_2;
+    }
+
+    for(int a = 0; a < Location.length(); a++) //Get Title
+    {
+        QString newtext = updateString;
+        newtext.replace(0, Location.at(a), "");
+        int end = newtext.indexOf(">") + 1;
+        newtext.replace(0, end, "");
+        int end2 = newtext.indexOf("<");
+        newtext.replace(end2, newtext.length(), "");
+        articleListName.append(newtext);
+    }
+
+    int defaulth2 = 5; //Need this to erase </h2>
+
+    for(int a = 0; a < Location.length(); a++) //Get Article
+    {
+        QString newtext = updateString;
+        newtext.replace(0, Location_Article.at(a) + defaulth2, "");
+        int end = newtext.indexOf("<div class=\"block_video video-container video_wrapper\">");
+        newtext.replace(end, newtext.length(), "");
+        articleListText.append(newtext);
     }
 }
