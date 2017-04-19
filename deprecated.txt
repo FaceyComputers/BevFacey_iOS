@@ -550,4 +550,25 @@ int mainfunction::getWidth()
     border.color: "#002947";
     border.width: 2;
     }*/
+    
+        int position = updateString.indexOf("<div class=\"main-content\">");
+    if(position > 0)
+    {
+        /*updateString.replace(0, position, "");
+        int position_2 = updateString.indexOf("<h2 class=\"article-title\">Follow us:</h2>");
+        updateString.replace(position_2, updateString.length(), "");
+
+        QString name = QCoreApplication::applicationDirPath();
+                int positions = name.indexOf("BevFacey_iOS.app");
+                name.replace(positions, name.length(), "");
+                name.append("Bevfacey.txt");
+                ofstream stream;
+                stream.open(name.toStdString().c_str());
+                stream << updateString.toStdString();
+                stream.close();*/
+
+        return updateString;
+    }else{
+        return "";
+    }
 
