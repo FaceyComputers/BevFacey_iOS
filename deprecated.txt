@@ -572,3 +572,23 @@ int mainfunction::getWidth()
         return "";
     }
 
+    /*Flickable {
+        contentWidth: testingText.width; contentHeight: 1000
+
+        anchors.fill: parent
+    Text {
+        z: 1;
+        function getData()
+        {
+        return "NULL";
+        }
+        id: testingText
+        x: 2
+        y: 155
+        width: 200;
+        height: 100;
+        text: qsTr(getData());
+        font.pixelSize: 16
+        renderType: Text.QtRendering;
+    }
+    }*/
