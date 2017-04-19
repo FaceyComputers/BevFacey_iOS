@@ -592,3 +592,26 @@ int mainfunction::getWidth()
         renderType: Text.QtRendering;
     }
     }*/
+    
+            /*for(int a = 0; a < Location.length(); a++)
+        {
+            if(Location.at(a) == position)
+            {
+                //qDebug() << "test";
+                articleBool = false;
+                break;
+            }
+            if(Location_Article.at(a) == position_2)
+            {
+                //qDebug() << "test";
+                articleBool = false;
+                break;
+            }
+        }
+        if(articleBool == false)
+        {
+            //qDebug() << "test";
+            break;
+        }else{*/
+        //qDebug() << position;
+        //}
