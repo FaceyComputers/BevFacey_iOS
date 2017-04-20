@@ -226,6 +226,7 @@ Item {
         onClicked: {
             //loader.source = "test.qml";
             //loader.active = true;
+            loadingBar.running = true;
             pageLoader.source = "Bell_Times.qml";
             pageLoader.visible = true;
             backin();

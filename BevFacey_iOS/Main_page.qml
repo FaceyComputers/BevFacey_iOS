@@ -41,7 +41,7 @@ Item {
                 object.y = ys;
                 object.setArticleTitle(mainfunction.getTitleStringfromList(a));
                 object.setText(mainfunction.getTextStringfromList(a));
-                ys = ys + 80;
+                ys = ys + 120;
                 }
             }
 

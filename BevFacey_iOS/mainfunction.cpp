@@ -46,17 +46,19 @@ void mainfunction::listData()
 {
     unsigned int position = 0;
     unsigned int position_2 = 0;
-    while(true) //Get Position of the article
+    bool isTrue = true;
+    do //Get Position of the article
     {
         position = updateString.indexOf("<h2 class=\"article-title\">", position + 1);
         position_2 = updateString.indexOf("</h2>", position_2 + 1);
         if(position == 4294967295) //(2 ^ 32) - 1
         {
+            isTrue = false;
             break;
         }
         Location.append(position);
         Location_Article.append(position_2);
-    }
+    }while(isTrue == true);
 
     for(int a = 0; a < Location_Article.length(); a++) //Get Title
     {

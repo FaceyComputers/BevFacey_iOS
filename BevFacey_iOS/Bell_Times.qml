@@ -19,15 +19,53 @@ Item {
     }
     height: 620 //620
 
-    MouseArea {
-        anchors.fill: parent
-        onClicked: myItem.message("clicked!")
+    property int counter: 0;
+    property int integer: 0;
+    property int ys: 0;
 
-       Text {
-           id: text1
-           anchors.centerIn: parent;
-           text: "Bell Times"
-           font.pixelSize: 25;
-       }
-   }
+    Flickable{
+        id: flickable
+        anchors.fill: parent
+        contentWidth: parent.width;
+        contentHeight: 0;
+
+        Item {
+            id: articleItems;
+            function createArticles()
+            {
+                for(var a = 0; a < integer; a++)
+                {
+                //testingText.text = mainfunction.getTextStringfromList(a);
+                var comp = Qt.createComponent("Article_Template.qml");
+                var object = comp.createObject(articleItems);
+                object.y = ys;
+                object.setArticleTitle(mainfunction.getTitleStringfromList(a));
+                object.setText(mainfunction.getTextStringfromList(a));
+                ys = ys + 120;
+                }
+            }
+
+    Timer {
+        interval: 20; running: true; repeat: true;
+        id: getUpdate;
+        onTriggered: {
+        mainfunction.load("http://bevfacey.ca/");
+        integer = mainfunction.updates();
+        ys = 10;
+        if(integer != 0)
+        {
+            parent.createArticles();
+            flickable.contentHeight = ys + 150; //Add 150 due to menu bar's height is 150
+            loadingBar.running = false;
+            getUpdate.running = false;
+        }
+        if(counter > 600)
+        {
+            loadingWarning.visible = true;
+        }
+        counter = counter + 1;
+        }
+    }
+        }
+            }
 }

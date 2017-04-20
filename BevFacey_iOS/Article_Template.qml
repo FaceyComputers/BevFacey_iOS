@@ -16,7 +16,7 @@ Item {
     color: "#004D85";
     x: 10;
     width: 355;
-    height: 70;
+    height: 100;
     }
     Label{
     id: articleTitletext;
