@@ -1,9 +1,20 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.0
+import QtQuick.Window 2.0
 
 Item {
 
         id: articleItem;
+
+        width:{
+        if(Screen.width != 1680)
+        {
+            Screen.width;
+        }
+        else{
+            375; //414, 375, 320 Debug
+        }
+        }
 
     function setArticleTitle(value)
     {
@@ -26,7 +37,7 @@ Item {
         id: backgroundFill;
     color: "#004D85";
     x: 10;
-    width: 355;
+    width: parent.width - 20;
     height: 400;
     }
 

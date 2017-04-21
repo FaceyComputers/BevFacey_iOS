@@ -45,9 +45,15 @@ Item {
                 if(mainfunction.getURLStringfromList(a) != "NULL")
                 {
                     object.setImageURL(mainfunction.getURLStringfromList(a));
+                    object.setHeight(300);
+                    ys = ys + 315;
+                }else if(mainfunction.getTitleStringfromList(a) == "Newsletter Articles"){
+                    object.setHeight(300);
+                    ys = ys + 310;
+                }else{
+                    object.setHeight(100);
+                    ys = ys + 115;
                 }
-                object.setHeight(300);
-                ys = ys + 320;
                 }
             }
 
