@@ -1,10 +1,13 @@
 QT += qml quick
 QT += widgets
+QT += webkit
+QT += webkitwidgets
 
 CONFIG += c++11
 
 SOURCES += main.cpp \
-    mainfunction.cpp
+    mainfunction.cpp \
+    media.cpp
 
 RESOURCES += qml.qrc
 
@@ -31,7 +34,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    mainfunction.h
+    mainfunction.h \
+    media.h
 
 DISTFILES +=
 

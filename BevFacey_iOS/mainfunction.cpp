@@ -196,15 +196,6 @@ void mainfunction::listData()
             articleListName.append(newtext);
         }
 
-        QString name = QCoreApplication::applicationDirPath();
-                        int positions = name.indexOf("BevFacey_iOS.app");
-                        name.replace(positions, name.length(), "");
-                        name.append("Bevfacey.txt");
-                        ofstream stream;
-                        stream.open(name.toStdString().c_str());
-                        stream << updateString.toStdString();
-                        stream.close();
-
         int defaulth2 = 5; //Need this to erase </h2>
 
         for(int a = 0; a < Location_Article.length(); a++) //Get Article

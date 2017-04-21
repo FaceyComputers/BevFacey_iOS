@@ -56,6 +56,7 @@ Item {
         if(integer != 0)
         {
             parent.createArticles();
+
             flickable.contentHeight = ys + 150; //Add 150 due to menu bar's height is 150
             loadingBar.running = false;
             getUpdate.running = false;

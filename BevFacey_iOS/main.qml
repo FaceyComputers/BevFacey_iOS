@@ -55,7 +55,7 @@ ApplicationWindow { //RAM Average 12.6MB
     Loader {
     z: -1;
     id: mainLoader;
-    source: "Main_page.qml"
+    source: "Live_Map.qml"
     anchors.fill: parent;
     visible: true;
     }

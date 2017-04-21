@@ -6,6 +6,8 @@
         <file>Menu.qml</file>
         <file>Article_Template.qml</file>
         <file>Main_page.qml</file>
+        <file>Power_School.qml</file>
+        <file>Live_Map.qml</file>
     </qresource>
     <qresource prefix="/images">
         <file>Bev_Facey_Logo.png</file>
