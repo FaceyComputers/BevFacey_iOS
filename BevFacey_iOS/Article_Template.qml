@@ -2,6 +2,9 @@ import QtQuick 2.7
 import QtQuick.Controls 2.0
 
 Item {
+
+        id: articleItem;
+
     function setArticleTitle(value)
     {
         articleTitletext.text = value;
@@ -10,14 +13,31 @@ Item {
     {
         articleText.text = value;
     }
-    id: test;
+    function setHeight(value)
+    {
+        backgroundFill.height = value;
+    }
+    function setImageURL(value)
+    {
+        image.source = value;
+    }
+
     Rectangle{
         id: backgroundFill;
     color: "#004D85";
     x: 10;
     width: 355;
-    height: 100;
+    height: 400;
     }
+
+    Image {
+        id: image;
+        x: backgroundFill.x + 10;
+        y: backgroundFill.y + 10;
+        width: backgroundFill.width - 20;
+        height: backgroundFill.height - 20;
+    }
+
     Label{
     id: articleTitletext;
     text: "NULL";

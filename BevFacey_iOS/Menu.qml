@@ -227,6 +227,8 @@ Item {
             //loader.source = "test.qml";
             //loader.active = true;
             loadingBar.running = true;
+            mainLoader.visible = false;
+
             pageLoader.source = "Bell_Times.qml";
             pageLoader.visible = true;
             backin();

@@ -9,6 +9,7 @@ Item {
     id: myItem
 
     width: {
+        mainfunction.load("http://bevfacey.ca/about/bell-times");
         if(Screen.width != 1680)
         {
             Screen.width;
@@ -41,7 +42,8 @@ Item {
                 object.y = ys;
                 object.setArticleTitle(mainfunction.getTitleStringfromList(a));
                 object.setText(mainfunction.getTextStringfromList(a));
-                ys = ys + 120;
+                object.setHeight(450);
+                ys = ys + 460;
                 }
             }
 
@@ -49,7 +51,6 @@ Item {
         interval: 20; running: true; repeat: true;
         id: getUpdate;
         onTriggered: {
-        mainfunction.load("http://bevfacey.ca/");
         integer = mainfunction.updates();
         ys = 10;
         if(integer != 0)

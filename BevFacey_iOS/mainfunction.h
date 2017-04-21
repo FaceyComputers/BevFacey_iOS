@@ -21,14 +21,17 @@ public:
 
     Q_INVOKABLE QString getTitleStringfromList(int value);
     Q_INVOKABLE QString getTextStringfromList(int value);
+    Q_INVOKABLE QString getURLStringfromList(int value);
 private:
     QString updateString;
     QNetworkAccessManager *access;
     //std::map<QList<QString>, QList<QString>> articleList;
     QList<QString> articleListName;
     QList<QString> articleListText;
+    QList<QString> articleURL;
     QList<int> Location_Article;
     QList<int> Location;
+    QString url;
     bool isAlreadydone = false;
     void listData();
 private slots:
