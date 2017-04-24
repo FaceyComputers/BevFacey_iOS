@@ -16,6 +16,9 @@ var Lat = document.getElementById("lat");
 var Long = document.getElementById("long");
 var ctx = document.getElementById("canvas").getContext("2d");
 var x = document.getElementById("reading");
+window.addEventListener('devicemotion', function(event) {
+	x.innerHTML = event.acceleration.x.toFixed(6);
+});
 var map = {
 	tile: document.getElementById("floor1"),
 	floor: 1,
@@ -79,7 +82,7 @@ function render(){
 }
 render();
 setInterval(function(){
-	getLocation();
+	//getLocation();
 	render();
 }, 250);
 </script>
