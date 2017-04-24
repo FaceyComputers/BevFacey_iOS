@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Map</title>
+</head>
+<body>
+<canvas id="canvas" width="550" height="400" style="border: 1px solid #000000;">
+	<img src="floor1.png" id="floor1">
+	<img src="floor2.png" id="floor2">
+</canvas>
+<p id="reading"></p>
+<p id="count"></p>
+<button onclick="map.changeFloor()">Change Floor</button>
+<script>
+var Lat = document.getElementById("lat");
+var Long = document.getElementById("long");
+var ctx = document.getElementById("canvas").getContext("2d");
+var x = document.getElementById("reading");
+var map = {
+	tile: document.getElementById("floor1"),
+	floor: 1,
+	changeFloor: function(){
+		if (this.floor === 1){
+			this.tile = document.getElementById("floor2");
+			this.floor = 2;
+		} else {
+			this.tile = document.getElementById("floor1");
+			this.floor = 1;
+		}
+	},
+	getX: function(latitude){
+		return (latitude - 53.5246)*-1370000;
+	},
+	getY: function(longitude){	
+		return (longitude + 113.269464)*-820000;
+	}
+}
+var readings = {
+	count: 0.0,
+	latitude: 0.0,
+	longitude: 0.0,
+	altitude: 0.0
+};
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(processPosition, locateError, {enableHighAccuracy: true});
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+function locateError(){
+	x.innerHTML = "ERROR!"
+}
+//function for averaging/other means of smoothing out readings
+function processPosition(position){
+  readings.altitude = position.coords.altitude;
+	if (readings.count < 30){
+		readings.latitude += position.coords.latitude;
+		readings.longitude += position.coords.longitude;
+    readings.count += 1;
+  } else {
+  	readings.latitude = position.coords.latitude;
+    readings.longitude = position.coords.longitude;
+    readings.count = 1;
+  }
+  showPosition()
+}
+function showPosition() {
+    x.innerHTML = "Latitude: " + (readings.latitude/readings.count).toFixed(6) + 
+    "<br>Longitude: " + (readings.longitude/readings.count).toFixed(6) + 
+    "<br>Altitude: " + readings.altitude;
+	document.getElementById("count").innerHTML = "Count: " + readings.count;
+}
+function render(){
+	ctx.clearRect(0,0,550,400);
+	ctx.drawImage(map.tile, map.getX(Number((readings.latitude/readings.count).toFixed(6))), map.getY(Number((readings.longitude/readings.count).toFixed(6))), map.tile.width/2, map.tile.height/2);
+	ctx.fillRect(270, 195, 10, 10);
+	//console.log(map.getX(Number((readings.latitude/readings.count).toFixed(6))), map.getY(Number((readings.longitude/readings.count).toFixed(6))));
+}
+render();
+setInterval(function(){
+	getLocation();
+	render();
+}, 250);
+</script>
+</body>
+</html>
