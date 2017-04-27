@@ -55,7 +55,7 @@ ApplicationWindow { //RAM Average 12.6MB
     Loader {
     z: -1;
     id: mainLoader;
-    source: "Live_Map.qml"
+    source: "Main_page.qml"
     anchors.fill: parent;
     visible: true;
     }
@@ -67,7 +67,7 @@ ApplicationWindow { //RAM Average 12.6MB
          width: root.width;
          height: root.height;
          id: pageLoader // ID needed for so we can later delete the item
-         //source: "Bell_Times.qml"
+         //source: "Main_page.qml"
          //focus: true
          visible: false;
     }

@@ -1,10 +1,10 @@
 import QtQuick 2.5
-import QtWebKit 3.0
+//import QtWebKit 3.0
 import QtQuick.Controls 2.1
 import QtQuick.Window 2.0
 
 Item {
-    width: {
+    /*width: {
         mainfunction.load("http://bevfacey.ca/about/bell-times");
         if(Screen.width != 1680)
         {
@@ -20,5 +20,5 @@ Item {
         url: "https://faceycomputers.github.io/BevFacey_iOS/Map-Tracker/map.html";
         anchors.fill: parent;
 
-    }
+    }*/
 }

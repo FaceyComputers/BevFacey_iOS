@@ -2,15 +2,19 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>Javascript.js</file>
-        <file>Bell_Times.qml</file>
+        <file>Bell_page.qml</file>
         <file>Menu.qml</file>
         <file>Article_Template.qml</file>
         <file>Main_page.qml</file>
         <file>Power_School.qml</file>
         <file>Live_Map.qml</file>
+        <file>Media_page.qml</file>
     </qresource>
     <qresource prefix="/images">
         <file>Bev_Facey_Logo.png</file>
+        <file>YouTube_Logo.png</file>
+        <file>Twitter_Logo.png</file>
+        <file>Facebook_Logo.png</file>
     </qresource>
     <qresource prefix="/font">
         <file>eras-bold.ttf</file>

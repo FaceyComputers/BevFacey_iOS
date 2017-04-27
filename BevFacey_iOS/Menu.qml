@@ -31,16 +31,24 @@ Item {
             font.capitalization: Font.MixedCase
             renderType: Text.QtRendering;
         }
-    }
 
-    Image {
-        id: bevFaceyLogo
-        z: 1;
-        x: Script.getPosition(parent.width, "Logo", "X");
-        y: Script.getPosition(parent.width, "Logo", "Y");
-        width: Script.getPosition(parent.width, "Logo", "Width");
-        height: Script.getPosition(parent.width, "Logo", "Height");
-        source: "qrc:/images/Bev_Facey_Logo.png"
+        Image {
+            id: bevFaceyLogo
+            z: 1;
+            x: Script.getPosition(parent.width, "Logo", "X");
+            y: Script.getPosition(parent.width, "Logo", "Y");
+            width: Script.getPosition(parent.width, "Logo", "Width");
+            height: Script.getPosition(parent.width, "Logo", "Height");
+            source: "qrc:/images/Bev_Facey_Logo.png"
+        }
+
+        MouseArea {
+            anchors.fill: parent;
+            onClicked: {
+                mainLoader.visible = true;
+                pageLoader.visible = false;
+            }
+        }
     }
 
     property bool isMenuDown: false;
@@ -229,7 +237,7 @@ Item {
             loadingBar.running = true;
             mainLoader.visible = false;
 
-            pageLoader.source = "Bell_Times.qml";
+            pageLoader.source = "Bell_page.qml";
             pageLoader.visible = true;
             backin();
         }
@@ -404,7 +412,12 @@ Item {
         MouseArea {
         anchors.fill: parent;
         onClicked: {
-        backin();
+            //loadingBar.running = true;
+            mainLoader.visible = false;
+
+            pageLoader.source = "Media_page.qml";
+            pageLoader.visible = true;
+            backin();
         }
         }
         }

@@ -1,7 +1,5 @@
 QT += qml quick
 QT += widgets
-QT += webkit
-QT += webkitwidgets
 
 CONFIG += c++11
 
