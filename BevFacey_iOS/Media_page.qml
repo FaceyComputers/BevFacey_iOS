@@ -53,7 +53,7 @@ Item {
                 z: 1;
                 source: "qrc:/images/Facebook_Logo.png";
                 width: mediaPage.width - 40;
-                height: 300;
+                height: 310;
                 y: 600;
                 x: 20;
             }
@@ -61,7 +61,7 @@ Item {
                 x: 10;
                 color: "#004D85";
                 width: mediaPage.width - 20;
-                height: 320;
+                height: 330;
                 y: 590;
             }
         }

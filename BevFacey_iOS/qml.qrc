@@ -9,6 +9,7 @@
         <file>Power_School.qml</file>
         <file>Live_Map.qml</file>
         <file>Media_page.qml</file>
+        <file>Principal_page.qml</file>
     </qresource>
     <qresource prefix="/images">
         <file>Bev_Facey_Logo.png</file>

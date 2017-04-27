@@ -299,6 +299,18 @@ Item {
             verticalAlignment: Text.AlignVCenter
             elide: Text.ElideRight
         }
+
+        MouseArea {
+        anchors.fill: parent;
+        onClicked: {
+            //loadingBar.running = true;
+            mainLoader.visible = false;
+
+            pageLoader.source = "Media_page.qml";
+            pageLoader.visible = true;
+            backin();
+        }
+        }
      }
 
         Button {
