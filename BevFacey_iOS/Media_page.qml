@@ -5,6 +5,7 @@ Item {
     width: root.width;
     height: root.height;
     y: 10;
+
     Flickable {
         contentWidth: root.width;
         contentHeight: 1080;

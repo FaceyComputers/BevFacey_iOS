@@ -13,12 +13,13 @@ Item {
         mainfunction.load("http://bevfacey.ca/");
         if(Screen.width != 1680)
         {
-            Screen.width;
+            root.width;
         }
         else{
             375; //414, 375, 320 Debug
         }
     }
+    height: 640;
 
     property int counter: 0;
     property int integer: 0;
@@ -51,8 +52,8 @@ Item {
                     object.setHeight(300);
                     ys = ys + 310;
                 }else{
-                    object.setHeight(100);
-                    ys = ys + 115;
+                    object.setHeight(130);
+                    ys = ys + 145;
                 }
                 }
             }

@@ -102,8 +102,9 @@ void mainfunction::listData()
     bool isTrue = true;
 
     updateString.replace("\n", "");
+    updateString.replace("\t", "");
 
-    if(url == "http://bevfacey.ca/")
+    if(url == "http://bevfacey.ca/") //Article
     {
     do //Get Position of the article
     {
@@ -144,9 +145,16 @@ void mainfunction::listData()
             urls.replace(0, image + 5, "");
             int end_2 = urls.indexOf("\"");
             urls.replace(end_2, urls.length(), "");
-            QString final = url + urls;
-            //qDebug() << final;
+            QString final = urls;
+            if(!(urls.contains("http:")))
+            {
+                final = url + urls;
+            }
             articleURL.append(final);
+
+            int end_for_newtext = newtext.indexOf("/>", image);
+            newtext.replace(image - 12, end_for_newtext, "");
+            newtext.replace("<img alt=\"", "");
         }else{
             articleURL.append("NULL");
         }
@@ -154,7 +162,7 @@ void mainfunction::listData()
     }
     }
 
-    if(url == "http://bevfacey.ca/about/bell-times")
+    if(url == "http://bevfacey.ca/about/bell-times") //Bell Times
     {
         updateString.replace("\n", "");
         updateString.replace("<td>", "\n");
@@ -205,7 +213,7 @@ void mainfunction::listData()
             int end = newtext.indexOf("<div class=\"block_video video-container video_wrapper\">");
             newtext.replace(end, newtext.length(), "");
             articleListText.append(newtext);
-        }
+        } 
 
     }
 }

@@ -4,6 +4,11 @@ import QtQuick.Controls 2.1
 import QtQuick.Window 2.0
 
 Item {
+    id: rootLiveMap;
+    width: root.width;
+    height: root.height;
+
+
     /*width: {
         mainfunction.load("http://bevfacey.ca/about/bell-times");
         if(Screen.width != 1680)

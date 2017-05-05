@@ -7,6 +7,9 @@ import "Javascript.js" as Script
 
 Item {
     id: rootMenu;
+    width: root.width;
+    height: root.height;
+
     Rectangle {
         id: topBlueRectangle;
         z: 1;
@@ -73,6 +76,9 @@ Item {
         aboutButton.text = "About \u25BC"
         aboutExtended.visible = false;
         middleBlueMenu.text = "Navigation \u2630";
+        programButton.text = "Programs \u25BC"
+        programExtended.visible = false;
+
     }
 
     Button {
@@ -306,7 +312,7 @@ Item {
             //loadingBar.running = true;
             mainLoader.visible = false;
 
-            pageLoader.source = "Media_page.qml";
+            pageLoader.source = "Principal_page.qml";
             pageLoader.visible = true;
             backin();
         }
@@ -396,7 +402,11 @@ Item {
         MouseArea {
         anchors.fill: parent;
         onClicked: {
-        backin();
+            mainLoader.visible = false;
+
+            pageLoader.source = "Power_School_page.qml";
+            pageLoader.visible = true;
+            backin();
         }
         }
         }
@@ -457,7 +467,11 @@ Item {
         MouseArea {
         anchors.fill: parent;
         onClicked: {
-        backin();
+            mainLoader.visible = false;
+
+            pageLoader.source = "Live_Map_page.qml";
+            pageLoader.visible = true;
+            backin();
         }
         }
         }
@@ -485,6 +499,10 @@ Item {
         MouseArea {
         anchors.fill: parent;
         onClicked: {
+            mainLoader.visible = false;
+
+            pageLoader.source = "Contact_Us_page.qml";
+            pageLoader.visible = true;
             backin();
         }
         }

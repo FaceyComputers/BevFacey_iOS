@@ -6,13 +6,13 @@ import QtQuick.Dialogs 1.2
 import "Javascript.js" as Script
 
 Item {
-    id: myItem
+    id: rootBell;
 
     width: {
         mainfunction.load("http://bevfacey.ca/about/bell-times");
         if(Screen.width != 1680)
         {
-            Screen.width;
+            root.width;
         }
         else{
             414; //414, 375, 320 Debug

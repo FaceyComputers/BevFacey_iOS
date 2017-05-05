@@ -9,7 +9,7 @@ Item {
         width:{
         if(Screen.width != 1680)
         {
-            Screen.width;
+            root.width;
         }
         else{
             375; //414, 375, 320 Debug
@@ -38,7 +38,7 @@ Item {
     color: "#004D85";
     x: 10;
     width: parent.width - 20;
-    height: 400;
+    height: 300;
     }
 
     Image {
@@ -47,9 +47,10 @@ Item {
         y: backgroundFill.y + 10;
         width: backgroundFill.width - 20;
         height: backgroundFill.height - 20;
+        fillMode: Image.PreserveAspectFit;
     }
 
-    Label{
+    Label {
     id: articleTitletext;
     text: "NULL";
     color: "white";
@@ -59,13 +60,16 @@ Item {
     //x: backgroundFill.width / 2 - 100;
     }
 
-    Label{
+    Label {
     id: articleText;
     text: "NULL";
     color: "white";
     font.pointSize: 15;
-    y: 15;
+    y: 30;
     x: 15;
+    width: backgroundFill.width - 20;
+    height: backgroundFill.height - 20;
+    wrapMode: "Wrap";
     //x: backgroundFill.width / 2 - 100;
     }
 }
